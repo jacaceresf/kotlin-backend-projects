@@ -1,0 +1,26 @@
+PUT http://localhost:8080/down
+Content-Type: application/json
+
+{
+  "value": 5,
+  "at": "2020-05-24T23:07:42.292Z"
+}
+
+###
+###
+GET http://localhost:8080
+Accept: application/json
+
+{
+  "value" : 3,
+  "at" : "2020-05-24T23:07:42.292Z"
+}
+
+###
+PUT http://localhost:8080/up
+Content-Type: application/json
+
+{
+  "value": 4,
+  "at": "2020-05-24T23:09:34.966Z"
+}
