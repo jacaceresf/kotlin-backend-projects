@@ -1,0 +1,27 @@
+POST http://localhost:8080/api/expense
+Content-Type: application/json
+
+{
+  "id": "5bd189d710b0277d46cf8ff5",
+  "expenseName": "Example",
+  "expenseCategory": "RESTAURANT",
+  "expenseAmount": 12
+}
+###
+GET http://localhost:8080/api/expense
+Accept: application/json
+
+###
+GET http://localhost:8080/api/expense/name/Example
+Accept: application/json
+
+
+###
+GET http://localhost:8080/api/expense/name/Example/id/s5bd189d710b0277d46cf8ff5
+Accept: application/json
+
+####
+DELETE http://localhost:8080/api/expense/id/5bd189d710b0277d46cf8ff5
+Accept: application/json
+
+####
