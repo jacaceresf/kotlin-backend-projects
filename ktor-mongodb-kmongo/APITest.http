@@ -1,0 +1,22 @@
+GET http://localhost:8080/person/62373790fb08b023054d65c8
+
+
+###
+#not found
+GET http://localhost:8080/person/6229a38236d4dc3abf0f3175
+
+###
+GET http://localhost:8080/person
+
+
+###
+POST http://localhost:8080/person
+Content-Type: application/json
+
+{
+  "name": "Ariel",
+  "age": 22
+}
+
+###
+GET http://localhost:8080/person/search?name=Jorge&age=24
