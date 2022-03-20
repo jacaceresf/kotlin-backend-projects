@@ -6,7 +6,7 @@ import org.bson.types.ObjectId
 import org.litote.kmongo.*
 import org.litote.kmongo.id.toId
 
-class PersonService {
+object PersonService {
 
     private val log = getLogger()
 
@@ -59,5 +59,17 @@ class PersonService {
         return personCollection.find(
             or(Person::name eq name, Person::age gte age)
         ).toList()
+    }
+
+    fun updateById(id: String, request: Person): Boolean {
+        return findById(id)?.let { person ->
+            val updateResult = personCollection.replaceOne(person.copy(name = request.name, age = request.age))
+            updateResult.modifiedCount == 1L
+        } ?: false
+    }
+
+    fun deleteById(id: String): Boolean {
+        val delete = personCollection.deleteOneById(ObjectId(id))
+        return delete.deletedCount == 1L
     }
 }
